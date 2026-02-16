@@ -1,246 +1,201 @@
-# Professional Portfolio Website
+# Emmy's Advanced Portfolio
 
-A modern, responsive portfolio website built with **Next.js 16**, **Tailwind CSS**, and **shadcn/ui** components. Designed for senior software engineers to showcase their work, skills, and experience.
+An advanced, modern portfolio website built with **Next.js**, **Tailwind CSS**, **shadcn/ui**, and **Framer Motion**. Features beautiful animations, dark mode support, and a professional design.
 
-## ✨ Features
+## 🚀 Features
 
-- **Modern Design**: Clean, professional interface with a dark/light mode toggle
-- **Responsive Layout**: Fully optimized for mobile, tablet, and desktop devices
-- **Component-Based Architecture**: Built with reusable shadcn/ui components
-- **SEO Optimized**: Comprehensive metadata and Open Graph support
-- **Performance**: Fast loading with Next.js 16 and Turbopack
-- **Type-Safe**: Full TypeScript support
-- **Dark Mode**: Seamless dark/light mode support with Tailwind CSS
+- ✨ **Advanced Animations** - Smooth transitions and interactive elements using Framer Motion
+- 🌓 **Dark Mode** - Full light/dark mode support with theme persistence
+- 📱 **Responsive Design** - Mobile-first approach with seamless responsiveness
+- 🎨 **Modern UI** - Built with shadcn/ui components and Tailwind CSS
+- ⚡ **Performance** - Optimized with Next.js and modern best practices
+- 🎯 **SEO Ready** - Proper metadata and structured content
+- 📊 **Interactive Sections** - Hero, About, Projects, Skills, Contact
 
-## 🚀 Sections
-
-1. **Navigation**: Sticky header with smooth scroll navigation
-2. **Hero Section**: Eye-catching introduction with stats
-3. **Skills & Expertise**: Organized skill categories with badges
-4. **Professional Experience**: Timeline of roles with achievements
-5. **Featured Projects**: Showcase of best work with technologies
-6. **Contact**: Multiple contact options and contact form
-7. **Footer**: Quick links and social connections
-
-## 🛠️ Tech Stack
-
-- **Framework**: Next.js 16 with App Router
-- **Styling**: Tailwind CSS v4
-- **Components**: shadcn/ui
-- **Language**: TypeScript
-- **Font**: Geist (Google Fonts)
-
-## 📋 Getting Started
-
-### Prerequisites
-
-- Node.js 16+
-- npm or yarn
-
-### Installation
-
-1. **Install dependencies**:
-
-```bash
-npm install
-```
-
-2. **Start development server**:
-
-```bash
-npm run dev
-```
-
-3. **Open in browser**:
-   Navigate to `http://localhost:3000`
-
-### Build for Production
-
-```bash
-npm run build
-npm start
-```
-
-## 📁 Project Structure
+## 📂 Project Structure
 
 ```
 src/
 ├── app/
-│   ├── globals.css           # Global styles
-│   ├── layout.tsx            # Root layout with metadata
-│   └── page.tsx              # Main portfolio page
+│   ├── globals.css           # Global styles and animations
+│   ├── layout.tsx            # Root layout with theme provider
+│   └── page.tsx              # Home page
 ├── components/
-│   ├── Navigation.tsx        # Header navigation
-│   ├── Hero.tsx              # Hero section
-│   ├── Skills.tsx            # Skills showcase
-│   ├── Experience.tsx        # Work experience
-│   ├── Projects.tsx          # Featured projects
-│   ├── Contact.tsx           # Contact section
-│   ├── Footer.tsx            # Footer
-│   └── ui/                   # shadcn/ui components
-└── data/
-    └── portfolio.ts          # Portfolio content data
+│   ├── navbar.tsx            # Navigation bar
+│   ├── theme-toggle.tsx      # Dark mode toggle
+│   ├── providers/
+│   │   └── theme-provider.tsx # Theme context provider
+│   └── sections/
+│       ├── hero.tsx          # Hero section
+│       ├── about.tsx         # About section
+│       ├── projects.tsx      # Projects showcase
+│       ├── skills.tsx        # Skills section
+│       ├── contact.tsx       # Contact form
+│       └── footer.tsx        # Footer
+├── config/
+│   └── portfolio.ts          # Portfolio data and configuration
+└── lib/
+    └── animations.ts         # Framer Motion animation variants
 ```
 
-## ✏️ Customization
+## 🛠️ Technologies Used
 
-### Update Portfolio Content
+- **Framework**: Next.js 16+ with App Router
+- **Styling**: Tailwind CSS v4
+- **UI Components**: shadcn/ui
+- **Motion**: Framer Motion
+- **Icons**: Lucide React
+- **Intersection**: react-intersection-observer for scroll animations
+- **Language**: TypeScript
 
-Edit `src/data/portfolio.ts` to update:
+## 🚀 Getting Started
 
-- Personal information (name, title, bio, contact details)
-- Skills by category
-- Work experience and achievements
-- Featured projects
-- Education and certifications
-
-Example:
-
-```typescript
-export const portfolioData = {
-  personal: {
-    name: "Your Name",
-    title: "Your Title",
-    bio: "Your bio...",
-    email: "your.email@example.com",
-    // ... more fields
-  },
-  // ... other sections
-};
-```
-
-### Customize Styling
-
-- **Colors**: Modify Tailwind CSS variables in `src/app/globals.css`
-- **Fonts**: Change font imports in `src/app/layout.tsx`
-- **Components**: All shadcn/ui components are in `src/components/ui/`
-
-### Add New Components
-
-1. Create new component in `src/components/`
-2. Import in `src/app/page.tsx`
-3. Add to the layout
-
-## 🎨 Component Library (shadcn/ui)
-
-The project includes these shadcn components:
-
-- Button
-- Card
-- Badge
-- Dialog
-- Hover Card
-- Separator
-
-To add more components:
+### Installation
 
 ```bash
-npx shadcn@latest add [component-name]
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
 
-## 📱 Responsive Design
+The application will be available at `http://localhost:3000`
 
-The portfolio is fully responsive with breakpoints:
+### Build for Production
+
+```bash
+# Build the project
+npm run build
+
+# Start production server
+npm run start
+```
+
+## 🎨 Customization
+
+### Portfolio Data
+
+Edit `src/config/portfolio.ts` to update:
+- Personal information
+- Project details
+- Skills and experience
+- Contact information
+- Color scheme
+
+### Theme Colors
+
+The portfolio uses a professional color scheme:
+- **Primary**: Indigo (#6366f1)
+- **Secondary**: Pink (#ec4899)
+- **Accent**: Cyan (#06b6d4)
+
+Modify the `THEME_COLORS` in `src/config/portfolio.ts` to change colors.
+
+### Animations
+
+Customize animations in `src/lib/animations.ts`. All animations use Framer Motion variants for consistent, reusable animations.
+
+## 🌓 Dark Mode
+
+Dark mode is automatically applied based on:
+1. Saved user preference (localStorage)
+2. System preference (prefers-color-scheme)
+3. Manual toggle via theme button
+
+The theme provider synchronizes all components and persists the user's choice.
+
+## 📋 Features Breakdown
+
+### Navigation
+- Fixed navbar with smooth scroll
+- Mobile-responsive menu
+- Theme toggle button
+- Scroll-aware background effects
+
+### Hero Section
+- Large headline with gradient text
+- Animated background decorative elements
+- CTA buttons with hover effects
+- Social media links
+- Floating stat cards
+- Scroll indicator
+
+### About Section
+- Professional description
+- Key highlights with animated checkmarks
+- Statistics with counter animations
+- Scroll-triggered animations
+
+### Projects Section
+- Project grid with image overlays
+- Hover effects and transitions
+- Technology tags
+- GitHub and live demo links
+- Smooth animations on scroll
+
+### Skills Section
+- Categorized skill display
+- Animated skill bars
+- Percentage indicators
+- Professional proficiency levels
+- Learning & growth section
+
+### Contact Section
+- Contact information cards
+- Interactive contact form
+- Form submission feedback
+- Social links
+
+### Footer
+- Quick navigation links
+- Social media links
+- Copyright information
+- Animated heart icon
+
+## 🎯 Performance Optimizations
+
+- Next.js Image optimization
+- Code splitting and lazy loading
+- CSS-in-JS with Tailwind
+- Optimized animations with Framer Motion
+- SEO-friendly structure
+
+## 📱 Responsive Breakpoints
 
 - Mobile: < 640px
 - Tablet: 640px - 1024px
 - Desktop: > 1024px
 
-## 🌙 Dark Mode
-
-Dark mode is automatically supported via Tailwind CSS dark mode class. Users can switch themes:
-
-- Add a theme toggle in the Navigation component
-- Uses `dark` class on HTML element
-
-## 📊 SEO
-
-The portfolio includes:
-
-- Proper HTML metadata
-- Open Graph tags for social sharing
-- Twitter card support
-- Structured markup
-- Sitemap and robots.txt (ready to add)
-
-## 🚢 Deployment
+## 🚀 Deployment
 
 ### Deploy to Vercel (Recommended)
 
-1. Push to GitHub
-2. Connect repository to Vercel
-3. Vercel auto-deploys on push
+```bash
+npm i -g vercel
+vercel
+```
 
 ### Deploy to Other Platforms
 
-The app builds to static files, compatible with any host:
-
-```bash
-npm run build
-```
-
-Output goes to `.next/` directory.
-
-## 🔧 Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm start` - Start production server
-- `npm run lint` - Run ESLint
-
-## 📝 Environment Variables
-
-Create `.env.local` for any environment-specific variables:
-
-```
-# .env.local
-NEXT_PUBLIC_SITE_URL=https://yourwebsite.com
-```
-
-## 🎯 Best Practices
-
-1. **Keep Content Updated**: Regularly update `src/data/portfolio.ts` with recent work
-2. **Optimize Images**: Use Next.js Image component for all images
-3. **Test Responsiveness**: Check on multiple devices
-4. **Track Analytics**: Add Google Analytics or Vercel Analytics
-5. **Monitor Performance**: Use Vercel Analytics and Web Vitals
-
-## 📧 Contact Form Integration
-
-To enable the contact form:
-
-1. Integrate with email service (Resend, SendGrid, Nodemailer)
-2. Create API route: `src/app/api/contact/route.ts`
-3. Update form submission in `src/components/Contact.tsx`
-
-## 🐛 Troubleshooting
-
-### Build Errors
-
-- Clear `.next` folder: `rm -rf .next`
-- Reinstall dependencies: `rm -rf node_modules && npm install`
-
-### Styling Issues
-
-- Restart dev server
-- Clear browser cache (Cmd+Shift+R on Mac)
-- Check Tailwind CSS configuration
+The project is compatible with any hosting platform that supports Next.js:
+- Netlify
+- GitHub Pages
+- AWS Amplify
+- Firebase Hosting
+- Any Node.js server
 
 ## 📖 Resources
 
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [shadcn/ui Components](https://ui.shadcn.com)
-- [TypeScript Handbook](https://www.typescriptlang.org/docs)
+- [Framer Motion Documentation](https://www.framer.com/motion/)
+- [shadcn/ui Documentation](https://ui.shadcn.com/)
 
 ## 📄 License
 
 This project is open source and available under the MIT License.
 
-## 👤 Author
-
-Created with care for showcasing professional portfolios.
-
 ---
 
-**Ready to showcase your work?** Start by updating your information in `src/data/portfolio.ts`!
+Built with ❤️ using modern web technologies.

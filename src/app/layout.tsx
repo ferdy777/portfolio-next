@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,40 +14,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Gbenga - Senior Software Engineer",
+  title: "Emmy - Full Stack Developer & Creative Problem Solver",
   description:
-    "Portfolio of Gbenga, a Senior Software Engineer specializing in full-stack development, cloud architecture, and system design.",
-  keywords: [
-    "software engineer",
-    "full-stack developer",
-    "TypeScript",
-    "Node.js",
-    "React",
-    "Next.js",
-  ],
-  authors: [{ name: "Gbenga", url: "https://yourwebsite.com" }],
-  creator: "Gbenga",
+    "Advanced portfolio showcasing projects, skills, and experience in full-stack web development",
+  keywords: ["Portfolio", "Developer", "Full Stack", "React", "Next.js"],
+  authors: [{ name: "Emmy" }],
   openGraph: {
     type: "website",
-    locale: "en_US",
-    url: "https://yourwebsite.com",
-    title: "Gbenga - Senior Software Engineer",
-    description:
-      "Portfolio of Gbenga, a Senior Software Engineer specializing in full-stack development.",
-    images: [
-      {
-        url: "https://yourwebsite.com/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Gbenga Portfolio",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Gbenga - Senior Software Engineer",
-    description:
-      "Portfolio of Gbenga, a Senior Software Engineer specializing in full-stack development.",
+    title: "Emmy - Full Stack Developer",
+    description: "Building beautiful and functional web experiences",
+    url: "https://emmy-portfolio.com",
   },
 };
 
@@ -56,11 +33,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50`}
       >
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );
