@@ -28,10 +28,10 @@ export function About() {
   };
 
   const highlights = [
-    "5+ years of web development experience",
-    "Proficient in React, Next.js, and Node.js",
-    "UI/UX design enthusiast",
-    "Open source contributor",
+    "3+ years of frontend development experience",
+    "Strong expertise in React, Next.js, and TypeScript",
+    "Experienced in building scalable and modular UI architectures",
+    "Passionate about performance optimization and clean code",
   ];
 
   return (
@@ -51,33 +51,33 @@ export function About() {
           <motion.div variants={itemVariants} className="mb-12">
             <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-4">
               About{" "}
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-pink-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-pink-600">
                 Me
               </span>
             </h2>
-            <div className="h-1 w-20 bg-linear-to-r from-indigo-600 to-pink-600 rounded-full" />
+            <div className="h-1 w-20 bg-gradient-to-r from-indigo-600 to-pink-600 rounded-full" />
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Left Column */}
             <motion.div variants={itemVariants} className="space-y-6">
               <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                I&apos;m a passionate full-stack developer with a knack for
-                creating elegant solutions to complex problems. With expertise
-                in modern web technologies, I love building applications that
-                are not just functional but also beautiful and user-friendly.
+                I am a dedicated Frontend Developer with over 3 years of
+                experience building modern, responsive, and user-focused web
+                applications. I specialize in creating clean and maintainable
+                interfaces using React, Next.js, and TypeScript.
               </p>
 
               <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                My journey in tech has been driven by curiosity and a desire to
-                continuously learn and improve. I believe in writing clean,
-                maintainable code and always prioritizing user experience.
+                I enjoy transforming complex ideas into intuitive digital
+                experiences. My focus is on performance, scalability, and
+                writing modular code that aligns with industry best practices.
               </p>
 
               <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                When I&apos;m not coding, you can find me exploring new design
-                trends, contributing to open source projects, or sharing
-                knowledge with the community.
+                Beyond development, I continuously improve my skills by
+                exploring new frontend technologies, refining UI systems, and
+                contributing to team-based projects.
               </p>
             </motion.div>
 
@@ -95,7 +95,7 @@ export function About() {
                   whileHover={{ x: 10 }}
                 >
                   <motion.div
-                    className="shrink-0 w-6 h-6 rounded-full bg-linear-to-r from-indigo-600 to-pink-600 flex items-center justify-center mt-1"
+                    className="shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-indigo-600 to-pink-600 flex items-center justify-center mt-1"
                     whileHover={{ scale: 1.2 }}
                   >
                     <Check className="w-4 h-4 text-white" />
@@ -116,9 +116,9 @@ export function About() {
             className="grid grid-cols-3 gap-8 mt-16 pt-16 border-t border-slate-200 dark:border-slate-800"
           >
             {[
-              { number: "50+", label: "Projects Completed" },
-              { number: "40+", label: "Happy Clients" },
-              { number: "5+", label: "Years Experience" },
+              { number: "10+", label: "Projects Built" },
+              { number: "3+", label: "Years Experience" },
+              { number: "100%", label: "Commitment to Quality" },
             ].map((stat, index) => (
               <motion.div
                 key={index}
@@ -126,14 +126,14 @@ export function About() {
                 className="text-center"
               >
                 <motion.div
-                  className="text-4xl sm:text-5xl font-bold bg-linear-to-r from-indigo-600 to-pink-600 bg-clip-text text-transparent mb-2"
+                  className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-pink-600 bg-clip-text text-transparent mb-2"
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={inView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ delay: 0.5 + index * 0.1, duration: 0.8 }}
                 >
                   {stat.number}
                 </motion.div>
-                <p className="text-slate-600 dark:text-slate-400">
+                <p className="text-slate-600  dark:text-slate-400">
                   {stat.label}
                 </p>
               </motion.div>

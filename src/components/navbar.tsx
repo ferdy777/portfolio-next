@@ -1,10 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { ThemeToggle } from "./theme-toggle";
 
 const navItems = [
   { name: "Home", href: "#home" },
@@ -28,89 +27,77 @@ export function Navbar() {
   }, []);
 
   return (
-    <motion.nav
+    <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-white/80 dark:bg-slate-950/80 backdrop-blur-md shadow-lg"
           : "bg-transparent"
       }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-16 relative">
           {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            <Link
-              href="/"
-              className="text-2xl font-bold bg-linear-to-r from-indigo-600 to-pink-600 bg-clip-text text-transparent"
-            >
-              Emmy
-            </Link>
-          </motion.div>
+          <div className="text-2xl font-bold bg-linear-to-r from-indigo-600 to-pink-600 bg-clip-text text-transparent">
+            <Link href="/">Ferdy</Link>
+          </div>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-1">
             {navItems.map((item, index) => (
-              <motion.div
-                key={item.name}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * (index + 1) }}
-              >
-                <Link
-                  href={item.href}
-                  className="px-3 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                >
-                  {item.name}
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Right Side Items */}
-          <div className="flex items-center gap-4">
-            <ThemeToggle />
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
-            >
-              {isOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        <motion.div
-          animate={{ height: isOpen ? "auto" : 0 }}
-          transition={{ duration: 0.3 }}
-          className="md:hidden overflow-hidden"
-        >
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                onClick={() => setIsOpen(false)}
+                className="px-3 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               >
                 {item.name}
               </Link>
             ))}
           </div>
-        </motion.div>
+
+          {/* Mobile Menu Button (fixed so it doesn’t move) */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 z-50 relative"
+          >
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
-    </motion.nav>
+
+      {/* Mobile Menu with backdrop */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/30 backdrop-blur-sm md:hidden z-40"
+            onClick={() => setIsOpen(false)} // click outside to close
+          >
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="absolute right-0 top-0 h-full w-3/4 bg-white dark:bg-slate-950 shadow-lg p-6"
+              onClick={(e) => e.stopPropagation()} // prevent closing when clicking menu
+            >
+              <div className="flex flex-col space-y-4 mt-10">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="text-lg font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
   );
 }

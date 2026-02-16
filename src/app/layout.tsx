@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { Navbar } from "@/components/navbar"; // import Navbar here
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,10 +35,35 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Blocking script to prevent flash of wrong theme */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const theme = localStorage.getItem('theme') || 'system';
+                  const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                  if (isDark) {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50`}
       >
-        <ThemeProvider>{children}</ThemeProvider>
+        {/* ThemeProvider wraps everything including Navbar */}
+        <ThemeProvider>
+          {/* Navbar must be inside the ThemeProvider so useTheme works */}
+          <Navbar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
