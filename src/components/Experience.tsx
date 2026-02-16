@@ -9,7 +9,7 @@ export function Experience() {
       className="py-24 px-4 sm:px-6 lg:px-8 bg-zinc-50 dark:bg-zinc-900/50"
     >
       <div className="mx-auto max-w-6xl">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-slide-up">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl">
             Professional Experience
           </h2>
@@ -22,7 +22,10 @@ export function Experience() {
           {portfolioData.experience.map((job, index) => (
             <Card
               key={index}
-              className="border-zinc-200 bg-white dark:border-zinc-800 dark:bg-black/50 overflow-hidden hover:shadow-lg transition-shadow"
+              className="border-zinc-200 bg-white dark:border-zinc-800 dark:bg-black/50 overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-slide-up"
+              style={{
+                animationDelay: `${100 * (index + 1)}ms`,
+              }}
             >
               <div className="p-6 sm:p-8">
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
@@ -66,7 +69,7 @@ export function Experience() {
 
         {/* Education */}
         {portfolioData.education.length > 0 && (
-          <div className="mt-16">
+          <div className="mt-16 animate-slide-up animate-delay-500">
             <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-8">
               Education
             </h3>
@@ -74,7 +77,10 @@ export function Experience() {
               {portfolioData.education.map((edu, index) => (
                 <Card
                   key={index}
-                  className="border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-black/50"
+                  className="border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-black/50 transition-all duration-300 hover:shadow-md hover:-translate-y-1"
+                  style={{
+                    animation: `slideInUp 0.6s ease-out ${400 + index * 150}ms backwards`,
+                  }}
                 >
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                     <div>

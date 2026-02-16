@@ -10,7 +10,7 @@ export function Contact() {
       className="py-24 px-4 sm:px-6 lg:px-8 bg-zinc-50 dark:bg-zinc-900/50"
     >
       <div className="mx-auto max-w-4xl">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-slide-up">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl">
             Let&apos;s Work Together
           </h2>
@@ -22,7 +22,7 @@ export function Contact() {
 
         <div className="grid gap-8 md:grid-cols-2">
           {/* Contact Information */}
-          <Card className="border-zinc-200 bg-white dark:border-zinc-800 dark:bg-black/50 p-8">
+          <Card className="border-zinc-200 bg-white dark:border-zinc-800 dark:bg-black/50 p-8 animate-slide-left animate-delay-100 transition-all duration-300 hover:shadow-lg">
             <h3 className="text-lg font-bold text-zinc-900 dark:text-white mb-6">
               Get in Touch
             </h3>
@@ -121,7 +121,7 @@ export function Contact() {
           </Card>
 
           {/* Quick Contact Form */}
-          <Card className="border-zinc-200 bg-white dark:border-zinc-800 dark:bg-black/50 p-8">
+          <Card className="border-zinc-200 bg-white dark:border-zinc-800 dark:bg-black/50 p-8 animate-slide-right animate-delay-200 transition-all duration-300 hover:shadow-lg">
             <h3 className="text-lg font-bold text-zinc-900 dark:text-white mb-6">
               Send a Message
             </h3>

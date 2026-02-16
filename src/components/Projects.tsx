@@ -8,7 +8,7 @@ export function Projects() {
   return (
     <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-slide-up">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl">
             Featured Projects
           </h2>
@@ -21,7 +21,10 @@ export function Projects() {
           {portfolioData.projects.map((project, index) => (
             <Card
               key={index}
-              className="border-zinc-200 bg-white dark:border-zinc-800 dark:bg-black/50 overflow-hidden flex flex-col hover:shadow-xl transition-shadow hover:-translate-y-1 duration-300"
+              className="border-zinc-200 bg-white dark:border-zinc-800 dark:bg-black/50 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:scale-105 animate-scale-in"
+              style={{
+                animationDelay: `${100 * (index + 1)}ms`,
+              }}
             >
               <div className="p-6 flex flex-col flex-1">
                 <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-2">

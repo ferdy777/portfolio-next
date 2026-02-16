@@ -31,7 +31,7 @@ export function Skills() {
   return (
     <section id="about" className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-slide-up">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl">
             Skills & Expertise
           </h2>
@@ -41,17 +41,23 @@ export function Skills() {
         </div>
 
         <div className="grid gap-12 md:grid-cols-2">
-          {skillCategories.map((category) => (
-            <div key={category.title}>
+          {skillCategories.map((category, idx) => (
+            <div
+              key={category.title}
+              className={`animate-slide-up ${["animate-delay-100", "animate-delay-200", "animate-delay-300", "animate-delay-400"][idx]}`}
+            >
               <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-4">
                 {category.title}
               </h3>
               <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill) => (
+                {category.skills.map((skill, skillIdx) => (
                   <Badge
                     key={skill}
                     variant="secondary"
-                    className={`${category.color} font-medium`}
+                    className={`${category.color} font-medium transition-all duration-300 hover:scale-110 hover:shadow-md cursor-pointer`}
+                    style={{
+                      animation: `slideInUp 0.6s ease-out ${150 + skillIdx * 50}ms backwards`,
+                    }}
                   >
                     {skill}
                   </Badge>

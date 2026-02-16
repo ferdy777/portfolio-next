@@ -9,9 +9,9 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-4">
           {/* Brand */}
-          <div>
+          <div className="animate-fade-in animate-delay-100">
             <div className="flex items-center gap-2 mb-4">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-purple-600">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 transition-transform duration-300 hover:scale-110">
                 <span className="text-sm font-bold text-white">G</span>
               </div>
               <span className="font-semibold text-zinc-900 dark:text-white">
@@ -24,7 +24,7 @@ export function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="animate-fade-in animate-delay-200">
             <h4 className="font-semibold text-zinc-900 dark:text-white mb-4">
               Quick Links
             </h4>
@@ -65,7 +65,7 @@ export function Footer() {
           </div>
 
           {/* Social */}
-          <div>
+          <div className="animate-fade-in animate-delay-300">
             <h4 className="font-semibold text-zinc-900 dark:text-white mb-4">
               Follow
             </h4>
@@ -104,7 +104,7 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="animate-fade-in animate-delay-400">
             <h4 className="font-semibold text-zinc-900 dark:text-white mb-4">
               Contact
             </h4>

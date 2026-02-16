@@ -8,7 +8,7 @@ export function Hero() {
       <div className="mx-auto max-w-4xl">
         <div className="text-center">
           {/* Badge */}
-          <div className="mb-6 inline-flex items-center rounded-full border border-zinc-200 bg-zinc-50 px-4 py-2 dark:border-zinc-800 dark:bg-zinc-900/50">
+          <div className="mb-6 inline-flex items-center rounded-full border border-zinc-200 bg-zinc-50 px-4 py-2 dark:border-zinc-800 dark:bg-zinc-900/50 animate-fade-in">
             <span className="mr-2 text-lg">👋</span>
             <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
               Welcome to my portfolio
@@ -16,7 +16,7 @@ export function Hero() {
           </div>
 
           {/* Main Heading */}
-          <h1 className="mt-6 text-4xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-6xl">
+          <h1 className="mt-6 text-4xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-6xl animate-slide-up animate-delay-100">
             Hi, I&apos;m{" "}
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               {portfolioData.personal.name}
@@ -24,32 +24,39 @@ export function Hero() {
           </h1>
 
           {/* Subtitle */}
-          <p className="mt-4 text-xl text-zinc-600 dark:text-zinc-400">
+          <p className="mt-4 text-xl text-zinc-600 dark:text-zinc-400 animate-slide-up animate-delay-200">
             {portfolioData.personal.title}
           </p>
 
           {/* Description */}
-          <p className="mt-6 max-w-2xl mx-auto text-lg text-zinc-600 dark:text-zinc-300">
+          <p className="mt-6 max-w-2xl mx-auto text-lg text-zinc-600 dark:text-zinc-300 animate-slide-up animate-delay-300">
             {portfolioData.personal.bio}
           </p>
 
           {/* CTA Buttons */}
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center">
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center animate-slide-up animate-delay-400">
             <Link href="#projects">
-              <Button size="lg" className="w-full sm:w-auto">
+              <Button
+                size="lg"
+                className="w-full sm:w-auto transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              >
                 View My Work
               </Button>
             </Link>
             <Link href="#contact">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto">
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full sm:w-auto transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              >
                 Get In Touch
               </Button>
             </Link>
           </div>
 
           {/* Stats */}
-          <div className="mt-16 grid gap-8 sm:grid-cols-2">
-            <div>
+          <div className="mt-16 grid gap-8 sm:grid-cols-2 animate-slide-up animate-delay-500">
+            <div className="transition-transform duration-300 hover:scale-105">
               <div className="text-3xl font-bold text-zinc-900 dark:text-white">
                 3+
               </div>
@@ -57,7 +64,7 @@ export function Hero() {
                 Years of Experience
               </p>
             </div>
-            <div>
+            <div className="transition-transform duration-300 hover:scale-105">
               <div className="text-3xl font-bold text-zinc-900 dark:text-white">
                 10+
               </div>
