@@ -15,16 +15,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Emmy - Full Stack Developer & Creative Problem Solver",
+  title: "Ferdy - Frontend Engineer & Creative Problem Solver",
   description:
     "Advanced portfolio showcasing projects, skills, and experience in full-stack web development",
   keywords: ["Portfolio", "Developer", "Full Stack", "React", "Next.js"],
-  authors: [{ name: "Emmy" }],
+  authors: [{ name: "Ferdy" }],
   openGraph: {
     type: "website",
-    title: "Emmy - Full Stack Developer",
+    title: "Ferdy - Frontend Engineer",
     description: "Building beautiful and functional web experiences",
-    url: "https://emmy-portfolio.com",
+    url: "https://ferdinard-stephen.onrender.com/",
   },
 };
 
